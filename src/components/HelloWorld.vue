@@ -1,25 +1,28 @@
 <template>
     <div>
-        {{msg}}
-        {{text}}
+        <div>这是count：{{count}}</div>
         <button @click="add">调用父组件方法</button>
     </div>
 </template>
 
 <script>
-import { reactive, toRef } from 'vue'
+import { reactive, toRef, getCurrentInstance } from 'vue'
 export default {
     name: 'HelloWorld',
     props: {
-        msg: Number
+        count: Number
     },
     setup(props, context) {
-        const text = toRef(props, 'msg');
+        // const text = toRef(props, 'count');
+        const instance = getCurrentInstance();
         const add = () => {
-            context.emit('countAdd');
+            // context.emit('countAdd');
+            // console.log(props.count);
+            instance.proxy.$emit('countAdd');
+            // console.log(props.count);
         }
         return {
-            text,
+            // text,
             add
         }
     }

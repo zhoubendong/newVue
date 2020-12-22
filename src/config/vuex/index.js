@@ -1,7 +1,7 @@
-import { readonly } from "vue";
 import { createStore } from "vuex";
 
 export default createStore({
+    // strict: true, // 开启严格模式
     state: {
         name: "test",
         age: '18'

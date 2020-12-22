@@ -12,14 +12,15 @@
     <div>age2：{{age2}}</div>
     <div>age3：{{age3}}</div> -->
 
-    <!-- {{data4.age}} -->
+    <!-- <div>data4：{{data4.age}}</div> -->
+    
 
     <p></p>
     <p></p>
     <button @click="addAge">增加</button>
 </template>
 
-<script lang="ts">
+<script>
 import { markRaw, reactive, ref, toRaw, toRef, toRefs } from 'vue';
 export default {
     name: 'home',
@@ -51,9 +52,9 @@ export default {
                 num: 333
             }
         });
-        console.log(state);
-        console.log(state2);
-        console.log(state3);
+        // console.log(state);
+        // console.log(state2);
+        // console.log(state3);
 
                                                             // toRef模块
         // toRef 官方解释：toRef用来为源响应式对象上的属性创建一个 ref。然后可以将 ref 传递出去，从而保持对其源 property 的响应式连接。
@@ -71,14 +72,14 @@ export default {
         // toRefs 官方解释：将响应式对象转换为普通对象，其中结果对象的每个 property 都是指向原始对象相应 property 的ref
         // toRefs 我方解释：是对原数据的引用，改变此值，相当于直接操作原数据
         const data2 = toRefs(state2);
-        console.log(data2);
+        // console.log(data2);
 
                                                             // toRaw模块
         // toRaw 方法是用于获取 ref 或 reactive 对象的原始数据的        
         // const data3 = reactive(state);
         // const raw = toRaw(data3);
         // console.log(state === raw);
-        // data3.age = 9;
+        // raw.age = 9;
         // console.log(state);
 
                                                     // markRaw模块
@@ -90,11 +91,12 @@ export default {
 
         function addAge() { // 增加age
             state.age += 1;
-            state2.age2 += 1;
-            state3.value.age3 += 1;
-            // data4.age += 1;
-
+            // state2.age2 += 1;
+            // state3.value.age3 += 1;
             console.log(state);
+            
+            // data4.age += 1;
+            // console.log(data4);
         }
         return {
             state,

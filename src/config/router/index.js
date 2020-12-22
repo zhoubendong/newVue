@@ -1,10 +1,9 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
-// const home = r => require.ensure([], () => r('../../view/home/home.vue'));
 import home from '../../views/home/home.vue';
 // import pageA from '../../views/page/pageA.vue';
 // import pageB from '../../views/page/pageB.vue';
-const routes:Array<RouteRecordRaw> = [
+const routes = [
     {
         path: '/',
         redirect: '/home'
@@ -26,7 +25,7 @@ const routes:Array<RouteRecordRaw> = [
     // }
 ]
 const router = createRouter({
-    history: createWebHistory(), // history模式
+    history: createWebHistory(), // history模式;哈希模式：createWebHashHistory
     routes
 });
 export default router;
