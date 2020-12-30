@@ -35,8 +35,8 @@ export default {
             pageType: window.sessionStorage.getItem('pageType') ? window.sessionStorage.getItem('pageType') : '1'
         });
 
-        const router = useRouter();
-        const route = useRoute();
+        // const router = useRouter();
+        // const route = useRoute();
 
         const countAdd = () => {
             state.count += 1;

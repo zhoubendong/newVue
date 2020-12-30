@@ -2,7 +2,7 @@
     <p></p>
     <h2>store、computed、watch、watchEffect、getCurrentInstance用法</h2>
     <p></p><p></p>
-    <div>
+    <div ref="dataRef">
         vuex数据==>>>name：{{name}}，age：{{age}}
     </div>
     <p></p>
@@ -15,6 +15,7 @@ import { useStore, mapState, mapMutations } from 'vuex';
 export default {
     name: 'home',
     setup(props,context) {
+        console.log(props)
         const store = useStore(); // 使用vuex
         // console.log(store);
                                         // computed 用法
@@ -66,7 +67,7 @@ export default {
                                             // getCurrentInstance用法,仅在setUp()或生命周期挂钩期间起作用
         const instance = getCurrentInstance();
         console.log(instance);
-
+        console.log(instance.proxy.$refs);
         return {
             name,
             age,

@@ -10,7 +10,10 @@ import { reactive, toRef, getCurrentInstance } from 'vue'
 export default {
     name: 'HelloWorld',
     props: {
-        count: Number
+        count: {
+            type: Number,
+            default: 0
+        }
     },
     setup(props, context) {
         // const text = toRef(props, 'count');
